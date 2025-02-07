@@ -30,7 +30,7 @@ function deleteTask(element) {
 function saveTask() {
   const tasks = [];
   document.querySelectorAll("#taskList li").forEach((li) => {
-    tasks.push(li.innerText.replace("❌", "").trim());
+    tasks.push(li.innerText.replace("Delete", "").trim());
   });
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
@@ -41,7 +41,7 @@ function loadTasks() {
 
   tasks.forEach((taskText) => {
     const li = document.createElement("li");
-    li.innerHTML = `${taskText} <span class="delete" onclick="deleteTask(this)">❌</span>`;
+    li.innerHTML = `${taskText} <button class="delete" onclick="deleteTask(this)">Delete</button>`;
     taskList.appendChild(li);
   });
 }
